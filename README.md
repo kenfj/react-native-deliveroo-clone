@@ -16,3 +16,21 @@ npm run ios
 # check command
 npx expo-doctor
 ```
+
+* React Native Bottom Sheet
+  - https://github.com/gorhom/react-native-bottom-sheet
+* React Native Reanimated
+  - https://github.com/software-mansion/react-native-reanimated
+* React Native Gesture Handler
+  - https://github.com/software-mansion/react-native-gesture-handler
+
+```bash
+npm install @gorhom/bottom-sheet
+
+# https://docs.swmansion.com/react-native-reanimated/docs/fundamentals/getting-started/
+npx expo install react-native-reanimated
+# edit babel.config.js
+npx expo start -c
+
+npx expo install react-native-gesture-handler
+```
