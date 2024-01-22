@@ -1,6 +1,9 @@
 import CustomHeader from '@/components/CustomHeader';
+import Colors from '@/constants/Colors';
+import { Ionicons } from '@expo/vector-icons';
 import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
-import { Stack } from 'expo-router';
+import { Stack, useNavigation } from 'expo-router';
+import { TouchableOpacity } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 export const unstable_settings = {
@@ -11,15 +14,37 @@ export const unstable_settings = {
 // GestureHandlerRootView is required in recent version
 // https://github.com/gorhom/react-native-bottom-sheet/issues/1389
 export default function RootLayoutNav() {
+  const navigation = useNavigation();
+
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <BottomSheetModalProvider>
         <Stack>
-          <Stack.Screen name="index" options={{
-            header: () => <CustomHeader />
-          }} />
+          <Stack.Screen
+            name="index"
+            options={{ header: CustomHeader }} />
+          <Stack.Screen
+            name='(modal)/filter'
+            options={{
+              presentation: 'modal',
+              headerTitle: 'Filter',
+              headerShadowVisible: false,
+              headerStyle: {
+                backgroundColor: Colors.lightGrey,
+              },
+              headerLeft: () => CloseIcon(() => navigation.goBack())
+            }} />
         </Stack>
       </BottomSheetModalProvider>
     </GestureHandlerRootView>
   );
 }
+
+const CloseIcon = (onPressCB: () => void) => (
+  <TouchableOpacity onPress={onPressCB}>
+    <Ionicons
+      name='close-outline'
+      size={28}
+      color={Colors.primary} />
+  </TouchableOpacity>
+);

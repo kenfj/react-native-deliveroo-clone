@@ -3,5 +3,15 @@
         "Deliveroo",
         "Ionicons"
     ],
-    "editor.linkedEditing": true
+    "editor.linkedEditing": true,
+    "files.watcherExclude": {
+        "**/.expo/**": true,
+        "**/assets/**": true
+    },
+    "colorize.languages": [
+        "typescript",
+        "typescriptreact",
+        "css",
+        "scss",
+    ],
 }
