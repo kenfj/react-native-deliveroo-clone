@@ -34,3 +34,10 @@ npx expo start -c
 
 npx expo install react-native-gesture-handler
 ```
+
+* React Native Bouncy Checkbox
+  - https://github.com/WrathChaos/react-native-bouncy-checkbox
+
+```bash
+npx expo install react-native-bouncy-checkbox
+```
