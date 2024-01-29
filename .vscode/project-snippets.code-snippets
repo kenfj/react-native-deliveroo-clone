@@ -57,4 +57,16 @@
     ],
     "description": "React useEffect"
   },
+  "styles snippet": {
+    "scope": "typescriptreact",
+    "prefix": "styles",
+    "body": [
+      "const styles = StyleSheet.create({",
+      "  container: {",
+      "    flex: 1,",
+      "  },",
+      "});",
+    ],
+    "description": "React Native styles"
+  },
 }

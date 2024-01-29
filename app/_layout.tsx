@@ -34,6 +34,13 @@ export default function RootLayoutNav() {
               },
               headerLeft: () => CloseIcon(() => navigation.goBack())
             }} />
+          <Stack.Screen
+            name='(modal)/location-search'
+            options={{
+              presentation: 'fullScreenModal',
+              headerTitle: 'Select location',
+              headerLeft: () => CloseIcon(() => navigation.goBack())
+            }} />
         </Stack>
       </BottomSheetModalProvider>
     </GestureHandlerRootView>
