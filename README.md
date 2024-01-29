@@ -41,3 +41,29 @@ npx expo install react-native-gesture-handler
 ```bash
 npx expo install react-native-bouncy-checkbox
 ```
+
+* React Native Maps
+  - https://docs.expo.dev/versions/latest/sdk/map-view/
+* React Native Google Places Autocomplete
+  - https://github.com/fullstackProDev/react-native-google-places-autocomplete
+
+```bash
+npx expo install react-native-maps
+npx expo install react-native-google-places-autocomplete
+```
+
+## Upgrade
+
+```bash
+npm install expo@50.0.4
+
+npx expo-doctor
+npx expo install --check
+
+npx expo start --ios --clear
+```
+
+## Reference
+
+* Best Practices etc.
+  - https://qiita.com/nakapon9517/items/6b99adc29e4597ed47e1
