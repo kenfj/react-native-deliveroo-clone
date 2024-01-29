@@ -4,7 +4,25 @@
   - https://www.youtube.com/watch?v=FXnnCrfiNGM
 * Updated using Expo SDK 50
 
-## Setup Project
+## Quick Start
+
+```bash
+node --version
+# v20.11.0
+npm --version
+# 10.4.0
+
+# install packages
+npm ci
+
+# start ios simulator
+npm run ios
+
+# start with cache clear sometimes
+npx expo start --ios --clear
+```
+
+## Initial Project Setup Notes
 
 ```bash
 # https://docs.expo.dev/router/installation/
