@@ -94,14 +94,14 @@ const styles = StyleSheet.create({
     borderRadius: 50,
   },
   searchContainer: {
-    height: 60,
+    height: 50,
     backgroundColor: 'white',
   },
   searchSection: {
     flexDirection: 'row',
     gap: 10,
     flex: 1,
-    paddingHorizontal: 20,
+    paddingHorizontal: 10,
     alignItems: 'center',
   },
   searchField: {
