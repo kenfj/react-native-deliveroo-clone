@@ -29,8 +29,8 @@
       "    <View>",
       "      <Text>${2}${1:$TM_FILENAME_BASE}</Text>",
       "    </View>",
-      "  )",
-      "}",
+      "  );",
+      "};",
       "",
       "export default ${1:$TM_FILENAME_BASE};",
       "$2"
