@@ -3,6 +3,10 @@
 * Inspired by Deliveroo Food Ordering Clone with React Native
   - https://www.youtube.com/watch?v=FXnnCrfiNGM
 * Updated using Expo SDK 50
+* updated using Reanimated for Parallax Scroll View
+  - Easiest React Native Parallax Image Scroll EVER
+  - https://www.youtube.com/watch?v=czP_egcFM9k
+  - without using i6mi6/react-native-parallax-scroll-view
 
 ## Quick Start
 
