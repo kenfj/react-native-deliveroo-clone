@@ -3,8 +3,7 @@ import Colors from '@/constants/Colors';
 import { Ionicons } from '@expo/vector-icons';
 import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 import { Stack, useNavigation } from 'expo-router';
-import { TouchableOpacity } from 'react-native';
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { GestureHandlerRootView, TouchableOpacity } from 'react-native-gesture-handler';
 
 export const unstable_settings = {
   // Ensure that reloading on `/modal` keeps a back button present.

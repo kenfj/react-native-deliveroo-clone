@@ -3,8 +3,9 @@ import Colors from '@/constants/Colors';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from 'expo-router';
 import React, { useEffect, useState } from 'react';
-import { FlatList, ListRenderItem, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { FlatList, ListRenderItem, StyleSheet, Text, View } from 'react-native';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 import Animated, { useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
 
 interface Category {

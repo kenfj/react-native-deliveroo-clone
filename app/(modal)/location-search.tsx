@@ -1,10 +1,11 @@
 import Colors from '@/constants/Colors';
+import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from 'expo-router';
 import React, { useState } from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import MapView, { Region } from 'react-native-maps';
+import { StyleSheet, Text, View } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
-import { Ionicons } from '@expo/vector-icons';
+import MapView, { Region } from 'react-native-maps';
 
 const API_KEY = process.env.EXPO_PUBLIC_GOOGLE_API_KEY ?? "";
 
@@ -19,7 +20,6 @@ const LocationSearch = () => {
   const navigation = useNavigation();
   const [location, setLocation] = useState<Region>(defaultLocation);
 
-  // TODO: video at 2:11
   return (
     <View style={styles.container}>
       <GooglePlacesAutocomplete

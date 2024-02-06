@@ -3,8 +3,9 @@ import { Ionicons } from '@expo/vector-icons';
 import { BottomSheetModal } from '@gorhom/bottom-sheet';
 import { Link } from 'expo-router';
 import React, { useRef } from 'react';
-import { Image, SafeAreaView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Image, SafeAreaView, StyleSheet, Text, TextInput, View } from 'react-native';
 import BottomSheet from './BottomSheet';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const SearchBar = () => (
   <View style={styles.searchContainer}>
