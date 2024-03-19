@@ -2,7 +2,7 @@ import Colors from '@/constants/Colors';
 import { Ionicons } from '@expo/vector-icons';
 import { Stack, useNavigation } from 'expo-router';
 import React, { PropsWithChildren } from 'react';
-import { Dimensions, StyleProp, StyleSheet, Text, View, ViewStyle } from 'react-native';
+import { Dimensions, NativeScrollEvent, NativeSyntheticEvent, StyleProp, StyleSheet, Text, View, ViewStyle } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import Animated, { interpolate, useAnimatedRef, useAnimatedStyle, useScrollViewOffset } from 'react-native-reanimated';
 
@@ -13,6 +13,7 @@ type Props = {
   imageHeight: number,
   imageSource: number,
   headerText: string,
+  onScroll: (event: NativeSyntheticEvent<NativeScrollEvent>) => void,
 };
 
 const ParallaxScrollView = ({
@@ -21,6 +22,7 @@ const ParallaxScrollView = ({
   imageHeight,
   imageSource,
   headerText,
+  onScroll,
 }: PropsWithChildren<Props>) => {
   const navigation = useNavigation();
   const scrollRef = useAnimatedRef<Animated.ScrollView>();
@@ -92,7 +94,11 @@ const ParallaxScrollView = ({
           headerBackground: headerBackground,
         }}
       />
-      <Animated.ScrollView ref={scrollRef} scrollEventThrottle={16}>
+      <Animated.ScrollView
+        ref={scrollRef}
+        scrollEventThrottle={16}
+        onScroll={onScroll}
+      >
         <Animated.Image
           source={imageSource}
           style={[{ width, height: imageHeight }, imageAnimatedStyle]} />
