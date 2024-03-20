@@ -3,6 +3,7 @@ import Colors from '@/constants/Colors';
 import { Ionicons } from '@expo/vector-icons';
 import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 import { Stack, useNavigation } from 'expo-router';
+import { StyleSheet } from 'react-native';
 import { GestureHandlerRootView, TouchableOpacity } from 'react-native-gesture-handler';
 
 export const unstable_settings = {
@@ -40,17 +41,34 @@ export default function RootLayoutNav() {
               headerTitle: 'Select location',
               headerLeft: () => CloseIcon(() => navigation.goBack())
             }} />
+
+          <Stack.Screen
+            name='(modal)/dish'
+            options={{
+              presentation: 'modal',
+              headerTitle: '',
+              headerTransparent: true,
+              headerLeft: () => CloseIcon(() => navigation.goBack())
+            }} />
         </Stack>
       </BottomSheetModalProvider>
     </GestureHandlerRootView>
   );
 }
 
-const CloseIcon = (onPressCB: () => void) => (
-  <TouchableOpacity onPress={onPressCB}>
+const CloseIcon = (onPress: () => void) => (
+  <TouchableOpacity onPress={onPress} style={styles.closeIcon}>
     <Ionicons
       name='close-outline'
       size={28}
       color={Colors.primary} />
   </TouchableOpacity>
 );
+
+const styles = StyleSheet.create({
+  closeIcon: {
+    backgroundColor: 'white',
+    borderRadius: 20,
+    padding: 6,
+  }
+});

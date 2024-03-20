@@ -5,7 +5,7 @@ import { Item } from './Item';
 import { Section } from './Section';
 
 export const SectionItem: SectionListRenderItem<Item, Section> = ({ item }) => (
-  <Link href={'/'} asChild>
+  <Link href={{ pathname: '/(modal)/dish', params: { id: item.id } }} asChild>
     <TouchableOpacity style={styles.button}>
       <View style={{ flex: 1 }}>
         <Text style={styles.name}>{item.name}</Text>
