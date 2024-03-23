@@ -8,6 +8,8 @@ import ConfettiCannon from 'react-native-confetti-cannon';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+const Separator = () => <View style={styles.separator} />;
+
 const Basket = () => {
   const { products, total, clearCart, reduceProduct } = useBasketStore();
   const [order, setOrder] = useState(false);
@@ -40,7 +42,7 @@ const Basket = () => {
           <FlatList
             data={products}
             ListHeaderComponent={<Text style={styles.section}>Items</Text>}
-            ItemSeparatorComponent={() => <View style={{ height: 1, backgroundColor: Colors.grey }} />}
+            ItemSeparatorComponent={Separator}
             renderItem={({ item }) => (
               <SwipeableRow onDelete={() => reduceProduct(item)}>
                 <View style={styles.row}>
@@ -152,6 +154,10 @@ const styles = StyleSheet.create({
     height: 50,
     justifyContent: 'center',
     marginTop: 20,
+  },
+  separator: {
+    height: 1,
+    backgroundColor: Colors.grey,
   },
 });
 

@@ -57,11 +57,7 @@ export default function RootLayoutNav() {
             name='basket'
             options={{
               headerTitle: 'Basket',
-              headerLeft: () => (
-                <TouchableOpacity onPress={() => navigation.goBack()}>
-                  <Ionicons name='arrow-back' size={28} color={Colors.primary} />
-                </TouchableOpacity>
-              ),
+              headerLeft: () => BackIcon(() => navigation.goBack()),
             }}
           />
         </Stack>
@@ -76,6 +72,12 @@ const CloseIcon = (onPress: () => void) => (
       name='close-outline'
       size={28}
       color={Colors.primary} />
+  </TouchableOpacity>
+);
+
+const BackIcon = (onPress: () => void) => (
+  <TouchableOpacity onPress={onPress}>
+    <Ionicons name='arrow-back' size={28} color={Colors.primary} />
   </TouchableOpacity>
 );
 

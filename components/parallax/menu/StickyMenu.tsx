@@ -1,3 +1,4 @@
+import { useHeaderHeight } from '@react-navigation/elements';
 import { StyleProp, StyleSheet, View, ViewStyle } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import Animated from 'react-native-reanimated';
@@ -10,9 +11,14 @@ type Props = {
   handleOnPress: (index: number) => void,
 };
 
+// Note: header height differ in iOS and Android
+// https://stackoverflow.com/questions/45734664
+
 export const StickyMenu = ({ titles, menuStyle, activeIndex, handleOnPress }: Props) => {
+  const headerHeight = useHeaderHeight();
+
   return (
-    <Animated.View style={[styles.menu, menuStyle]}>
+    <Animated.View style={[styles.menu, menuStyle, { top: headerHeight }]}>
       <View style={styles.menuShadow}>
         <ScrollView
           horizontal
@@ -38,7 +44,6 @@ export const styles = StyleSheet.create({
     height: 50,
     left: 0,
     right: 0,
-    top: 98,
     backgroundColor: 'white',
     overflow: 'hidden',
     paddingBottom: 4,

@@ -107,12 +107,12 @@ export const ParallaxSectionList = <ITEM, SECTION extends { title: string }>({
     setActiveIndex(index);
 
     // workaround https://stackoverflow.com/questions/76787877
-    const wait = new Promise(resolve => setTimeout(resolve, 300));
+    const wait = new Promise(resolve => setTimeout(resolve, 500));
     wait.then(() => {
       sectionListRef.current?.scrollToLocation({
         sectionIndex: index,
         itemIndex: 1, // Note: must be 1 somehow
-        viewPosition: 0.2,
+        viewOffset: 160,
         animated: false,
       })
     });
