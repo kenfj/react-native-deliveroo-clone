@@ -1,8 +1,11 @@
 import Colors from '@/constants/Colors';
-import { Stack, useNavigation } from 'expo-router';
+import useBasketStore from '@/store/basketStore';
+import { Link, Stack, useNavigation } from 'expo-router';
 import { ReactElement, ReactNode, useRef, useState } from 'react';
-import { Dimensions, SectionList, SectionListData, SectionListRenderItem, StyleProp, StyleSheet, View, ViewStyle } from 'react-native';
+import { Dimensions, SectionList, SectionListData, SectionListRenderItem, StyleProp, StyleSheet, Text, View, ViewStyle } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 import Animated, { interpolate, useAnimatedScrollHandler, useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { HeaderBackground, HeaderLeft, HeaderRight } from './headers/ScreenHeader';
 import { StickyMenu } from './menu/StickyMenu';
 
@@ -46,6 +49,8 @@ export const ParallaxSectionList = <ITEM, SECTION extends { title: string }>({
   const menuStyle = useAnimatedStyle(() => ({
     opacity: menuOpacity.value,
   }));
+
+  const { items, total } = useBasketStore();
 
   const AnimatedSectionList = Animated
     .createAnimatedComponent(SectionList<ITEM, SECTION>);
@@ -160,6 +165,20 @@ export const ParallaxSectionList = <ITEM, SECTION extends { title: string }>({
         activeIndex={activeIndex}
         handleOnPress={selectSection}
       />
+
+      {items > 0 && (
+        <View style={styles.footer}>
+          <SafeAreaView edges={['bottom']} style={{ backgroundColor: 'white' }}>
+            <Link href={'/basket'} asChild>
+              <TouchableOpacity style={styles.fullButton}>
+                <Text style={styles.basket}>{items}</Text>
+                <Text style={styles.footerText}>View Basket</Text>
+                <Text style={styles.basketTotal}>${total}</Text>
+              </TouchableOpacity>
+            </Link>
+          </SafeAreaView>
+        </View>
+      )}
     </View>
   );
 };
@@ -169,5 +188,46 @@ export const styles = StyleSheet.create({
     marginHorizontal: 16,
     height: 1,
     backgroundColor: Colors.grey,
+  },
+  footer: {
+    position: 'absolute',
+    backgroundColor: 'white',
+    bottom: 0,
+    left: 0,
+    width: '100%',
+    padding: 10,
+    elevation: 10,
+    shadowColor: 'black',
+    shadowOffset: { width: 0, height: -10 },
+    shadowOpacity: 0.1,
+    shadowRadius: 10,
+    paddingTop: 20,
+  },
+  fullButton: {
+    backgroundColor: Colors.primary,
+    paddingHorizontal: 16,
+    borderRadius: 8,
+    alignItems: 'center',
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    height: 50,
+  },
+  footerText: {
+    color: 'white',
+    fontWeight: 'bold',
+    fontSize: 16,
+  },
+  basket: {
+    color: 'white',
+    backgroundColor: '#19AA86',
+    fontWeight: 'bold',
+    padding: 8,
+    borderRadius: 2,
+  },
+  basketTotal: {
+    color: 'white',
+    fontSize: 16,
+    fontWeight: 'bold',
   },
 });

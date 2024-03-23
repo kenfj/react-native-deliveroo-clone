@@ -1,5 +1,6 @@
 import { getDishById } from '@/assets/data/restaurant';
 import Colors from '@/constants/Colors';
+import useBasketStore from '@/store/basketStore';
 import * as Haptics from 'expo-haptics';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import React from 'react';
@@ -9,10 +10,12 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 const Dish = () => {
   const { id } = useLocalSearchParams<{ id: string }>();
-  const item = getDishById(+id);
+  const item = getDishById(+id)!;
   const router = useRouter();
+  const { addProduct } = useBasketStore();
 
   const addToCart = (event: GestureResponderEvent) => {
+    addProduct(item);
     Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
     router.back();
   }

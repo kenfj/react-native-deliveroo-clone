@@ -23,6 +23,7 @@ export default function RootLayoutNav() {
           <Stack.Screen
             name="index"
             options={{ header: CustomHeader }} />
+
           <Stack.Screen
             name='(modal)/filter'
             options={{
@@ -34,6 +35,7 @@ export default function RootLayoutNav() {
               },
               headerLeft: () => CloseIcon(() => navigation.goBack())
             }} />
+
           <Stack.Screen
             name='(modal)/location-search'
             options={{
@@ -50,6 +52,18 @@ export default function RootLayoutNav() {
               headerTransparent: true,
               headerLeft: () => CloseIcon(() => navigation.goBack())
             }} />
+
+          <Stack.Screen
+            name='basket'
+            options={{
+              headerTitle: 'Basket',
+              headerLeft: () => (
+                <TouchableOpacity onPress={() => navigation.goBack()}>
+                  <Ionicons name='arrow-back' size={28} color={Colors.primary} />
+                </TouchableOpacity>
+              ),
+            }}
+          />
         </Stack>
       </BottomSheetModalProvider>
     </GestureHandlerRootView>
