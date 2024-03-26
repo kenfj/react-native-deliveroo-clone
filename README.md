@@ -31,6 +31,29 @@ npx expo start --ios --clear
 ❯   iPhone 15 Pro Max (17.4)
 ```
 
+## EAS Build
+
+* formerly known as `expo publish`
+* build as preview for testing
+  - https://docs.expo.dev/build/setup/
+  - https://docs.expo.dev/build/internal-distribution/
+* Note: free tier up to 30 medium builds
+
+```bash
+npm install -g eas-cli
+eas login
+
+eas build --profile preview --platform android
+# eas build --profile preview --platform ios
+
+# When the build completes, you will be given
+# a URL that you can share with your team
+# to download and install the app.
+
+# check build status
+eas build:list
+```
+
 ## Initial Project Setup Notes
 
 ```bash
